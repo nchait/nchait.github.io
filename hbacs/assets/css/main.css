@@ -264,36 +264,34 @@ img.img-responsive {
   display: none;
 }
 
+.episodeTitle {
+  display: block;
+  width: 100%;
+  padding-bottom: 2rem;
+}
+.episodeTitle h2 {
+  font-size: 2.5rem;
+  line-height: 0;
+}
+
 .episode {
   position: relative;
   display: flex;
 }
-.episode:nth-child(1) .episode__image {
+.episode:nth-child(2) .episode__image {
   background-image: url(../images/photos/edited/1.png);
 }
-.episode:nth-child(2) .episode__image {
+.episode:nth-child(3) .episode__image {
   background-image: url(../images/photos/edited/2.png);
 }
-.episode:nth-child(3) .episode__image {
-  background-image: url(../images/maple-leaf-foods/thumbnail.jpg);
-}
 .episode:nth-child(4) .episode__image {
-  background-image: url(../images/photos/edited/4.png);
-}
-.episode:hover .episode__detail:before {
-  width: 100%;
-}
-.episode:hover:nth-child(1) .episode__image {
-  background-image: url(../images/photos/original/1.png);
-}
-.episode:hover:nth-child(2) .episode__image {
-  background-image: url(../images/photos/original/2.png);
-}
-.episode:hover:nth-child(3) .episode__image {
   background-image: url(../images/maple-leaf-foods/thumbnail.jpg);
 }
-.episode:hover:nth-child(4) .episode__image {
-  background-image: url(../images/photos/original/4.png);
+.episode:nth-child(5) .episode__image {
+  background-image: url(../images/a-better-future/thumbnail.svg);
+}
+.episode:nth-child(7) .episode__image {
+  background-image: url(../images/photos/edited/4.png);
 }
 
 .episode__number {
