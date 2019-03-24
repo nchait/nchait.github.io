@@ -1,5 +1,10 @@
 .site {
   padding: 2rem 3rem;
+
+  .left-image > img{
+    margin-top: 2rem;
+    width:100%;
+  }
 }
 
 .site__title {
@@ -33,11 +38,15 @@
 }
 
 .site__secondary_title {
-  display: none;
-  color: black;
+  // display: none;
+  color: $gray;
   margin: 2rem 5rem 0 5rem;
   font-size: 1.2rem;
   font-family: 'Source Sans Pro', sans-serif;
+}
+
+.right .site__secondary_title {
+  margin: 2rem 0 0 0;
 }
 
 .site__navigation {

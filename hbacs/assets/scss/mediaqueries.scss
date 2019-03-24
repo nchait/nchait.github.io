@@ -142,6 +142,7 @@
   .left {
     padding-left: 5rem;
     padding-top: 5rem;
+    padding-right: 5rem;
     display: flex;
     flex-direction: column;
     .site__title.site__title--separator:after {
@@ -191,6 +192,7 @@
 
   .site__secondary_title {
     display: block;
+    color: black;
   }
 
   /* audio player */
@@ -211,9 +213,9 @@
 }
 
 @media only screen and (min-width : 1400px) {
-  .right {
-    .site__description {
-      column-count: 2;
-    }
-  }
+  // .right {
+  //   .site__description {
+  //     column-count: 2;
+  //   }
+  // }
 }

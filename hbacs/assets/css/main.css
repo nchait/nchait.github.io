@@ -152,6 +152,10 @@ nav > * {
 .site {
   padding: 2rem 3rem;
 }
+.site .left-image > img {
+  margin-top: 2rem;
+  width: 100%;
+}
 
 .site__title {
   font-size: 3rem;
@@ -184,11 +188,14 @@ nav > * {
 }
 
 .site__secondary_title {
-  display: none;
-  color: black;
+  color: #F7F7F6;
   margin: 2rem 5rem 0 5rem;
   font-size: 1.2rem;
   font-family: "Source Sans Pro", sans-serif;
+}
+
+.right .site__secondary_title {
+  margin: 2rem 0 0 0;
 }
 
 .site__navigation {
@@ -264,7 +271,7 @@ nav > * {
   background-image: url(../images/photos/edited/2.png);
 }
 .episode:nth-child(3) .episode__image {
-  background-image: url(../images/photos/edited/3.png);
+  background-image: url(../images/maple-leaf-foods/thumbnail.jpg);
 }
 .episode:nth-child(4) .episode__image {
   background-image: url(../images/photos/edited/4.png);
@@ -279,7 +286,7 @@ nav > * {
   background-image: url(../images/photos/original/2.png);
 }
 .episode:hover:nth-child(3) .episode__image {
-  background-image: url(../images/photos/original/3.png);
+  background-image: url(../images/maple-leaf-foods/thumbnail.jpg);
 }
 .episode:hover:nth-child(4) .episode__image {
   background-image: url(../images/photos/original/4.png);
@@ -600,6 +607,7 @@ nav > * {
   .left {
     padding-left: 5rem;
     padding-top: 5rem;
+    padding-right: 5rem;
     display: flex;
     flex-direction: column;
   }
@@ -649,6 +657,7 @@ nav > * {
 
   .site__secondary_title {
     display: block;
+    color: black;
   }
 
   /* audio player */
@@ -666,11 +675,6 @@ nav > * {
 
   .qr-code {
     display: block;
-  }
-}
-@media only screen and (min-width: 1400px) {
-  .right .site__description {
-    column-count: 2;
   }
 }
 
