@@ -279,22 +279,19 @@ img.img-responsive {
   display: flex;
 }
 .episode:nth-child(2) .episode__image {
-  background-image: url(../images/photos/edited/1.png);
+  background-image: url(../images/industry-situation/thumbnail.jpg);
 }
 .episode:nth-child(3) .episode__image {
-  background-image: url(../images/photos/edited/2.png);
-}
-.episode:nth-child(4) .episode__image {
   background-image: url(../images/maple-leaf-foods/thumbnail.jpg);
 }
-.episode:nth-child(5) .episode__image {
+.episode:nth-child(4) .episode__image {
   background-image: url(../images/a-better-future/thumbnail.svg);
 }
-.episode:nth-child(7) .episode__image {
-  background-image: url(../images/photos/edited/4.png);
+.episode:nth-child(6) .episode__image {
+  background-image: url(../images/sustainability-branding/thumbnail.png);
 }
-.episode:nth-child(8) .episode__image {
-  background-image: url(../images/photos/edited/4.png);
+.episode:nth-child(7) .episode__image {
+  background-image: url(../images/cultured-meat/thumbnail.png);
 }
 
 .episode__number {
@@ -468,6 +465,10 @@ img.img-responsive {
 /* mobile first*/
 /* Custom, iPhone Retina */
 @media only screen and (min-width: 320px) {
+  .mobilePaddingTop {
+    padding-top: 2rem;
+  }
+
   .page--detail .site {
     padding-bottom: 5rem;
     padding-top: 5rem;
@@ -499,6 +500,10 @@ img.img-responsive {
 }
 /* Small Devices, Tablets */
 @media only screen and (min-width: 1000px) {
+  .mobilePaddingTop {
+    padding-top: 0;
+  }
+
   /* main page */
   body {
     position: relative;
