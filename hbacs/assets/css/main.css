@@ -474,8 +474,17 @@ nav > * {
   .right .playBtn {
     display: none;
   }
+
+  .qr-code {
+    display: none;
+  }
 }
 /* Extra Small Devices, Phones */
+@media only screen and (min-width: 480px) {
+  .qr-code {
+    display: none;
+  }
+}
 /* Small Devices, Tablets */
 @media only screen and (min-width: 1000px) {
   /* main page */
@@ -653,6 +662,10 @@ nav > * {
     background-color: white;
     margin-right: 5rem;
     border-radius: 4px;
+  }
+
+  .qr-code {
+    display: block;
   }
 }
 @media only screen and (min-width: 1400px) {

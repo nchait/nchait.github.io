@@ -24,11 +24,16 @@
       display: none;
     }
   }
+  .qr-code{
+    display:none;
+  }
 }
 
 /* Extra Small Devices, Phones */ 
 @media only screen and (min-width : 480px) {
-
+  .qr-code{
+    display:none;
+  }
 }
 
 /* Small Devices, Tablets */
@@ -199,6 +204,9 @@
     background-color: white;
     margin-right: 5rem;
     border-radius: 4px;
+  }
+  .qr-code{
+    display:block;
   }
 }
 
