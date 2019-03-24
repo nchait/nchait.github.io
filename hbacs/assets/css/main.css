@@ -293,6 +293,9 @@ img.img-responsive {
 .episode:nth-child(7) .episode__image {
   background-image: url(../images/photos/edited/4.png);
 }
+.episode:nth-child(8) .episode__image {
+  background-image: url(../images/photos/edited/4.png);
+}
 
 .episode__number {
   display: none;
