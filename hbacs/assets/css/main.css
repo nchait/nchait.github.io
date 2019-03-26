@@ -279,18 +279,21 @@ img.img-responsive {
   display: flex;
 }
 .episode:nth-child(2) .episode__image {
-  background-image: url(../images/industry-situation/thumbnail.jpg);
+  background-image: url(../images/resource-depletion/thumbnail.jpg);
 }
 .episode:nth-child(3) .episode__image {
-  background-image: url(../images/maple-leaf-foods/thumbnail.jpg);
+  background-image: url(../images/stakeholders/thumbnail.jpg);
 }
 .episode:nth-child(4) .episode__image {
+  background-image: url(../images/maple-leaf-foods/thumbnail.jpg);
+}
+.episode:nth-child(5) .episode__image {
   background-image: url(../images/a-better-future/thumbnail.svg);
 }
-.episode:nth-child(6) .episode__image {
+.episode:nth-child(7) .episode__image {
   background-image: url(../images/sustainability-branding/thumbnail.png);
 }
-.episode:nth-child(7) .episode__image {
+.episode:nth-child(8) .episode__image {
   background-image: url(../images/cultured-meat/thumbnail.png);
 }
 
