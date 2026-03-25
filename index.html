@@ -92,9 +92,11 @@
     }
     .hero-tagline strong { color: var(--text); font-weight: 600; }
     .hero-location {
-      font-size: 0.9rem; color: var(--muted); margin-bottom: 2.5rem;
+      font-size: 0.9rem; color: var(--muted); margin-bottom: 0.5rem;
     }
     .hero-location span { color: var(--accent); }
+    .hero-role { font-size: 0.9rem; color: var(--muted); margin-bottom: 2rem; }
+    .hero-role strong { color: var(--green); }
     .hero-ctas { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
     .btn-primary {
       background: var(--accent); color: #fff; text-decoration: none;
@@ -252,6 +254,7 @@
     <li><a href="#skills">Skills</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#projects">Projects</a></li>
+    <li><a href="#certs">Certs</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -263,7 +266,8 @@
     <div class="hero-badge">Available for opportunities</div>
     <h1 class="hero-name">Noah Chait</h1>
     <p class="hero-tagline"><strong>Full Stack Developer</strong> &amp; People Person</p>
-    <p class="hero-location">📍 <span>Thornhill / Toronto, ON</span></p>
+    <p class="hero-location">📍 <span>New York, NY</span> (originally Thornhill/Toronto)</p>
+    <p class="hero-role">Currently <strong>Technical Lead – Data Engineering</strong> at Juniper Square</p>
     <div class="hero-ctas">
       <a href="#experience" class="btn-primary">View Experience</a>
       <a href="#contact" class="btn-outline">Get in Touch</a>
@@ -280,24 +284,27 @@
     <div class="about-grid">
       <div class="about-text">
         <p>
-          I've been building software for <strong>7+ years</strong>, picking up everything from
-          web apps to automation along the way. I'm comfortable across the stack and always curious
-          about what's around the corner.
+          Developer, entrepreneur, thinker, and friend. I've been building software for
+          <strong>7+ years</strong> across the full stack — from frontend UIs to data pipelines
+          and cloud infrastructure.
         </p>
         <p>
-          What sets me apart is the <strong>business side</strong>. I've worked closely with
-          founders and C-suite teams, giving me a perspective that goes beyond writing code —
-          I understand the "why" behind the product.
+          Currently <strong>Technical Lead – Data Engineering at Juniper Square</strong> in New York,
+          where I help scale data infrastructure for the private markets space.
         </p>
         <p>
-          Based in <strong>Thornhill / Toronto</strong>, open to both remote and in-person roles.
+          What sets me apart is the <strong>business side</strong>. Time in sales and finance taught
+          me how startups grow from within, and I've worked closely with C-suite teams on everything
+          from CRM strategy to financial modelling.
         </p>
         <div class="about-tags">
+          <span class="tag">Python</span>
+          <span class="tag">PySpark</span>
+          <span class="tag">SQL</span>
+          <span class="tag">Pandas</span>
           <span class="tag">React</span>
           <span class="tag">Node.js</span>
-          <span class="tag">Python</span>
           <span class="tag">TypeScript</span>
-          <span class="tag">SQL</span>
           <span class="tag">GCP</span>
           <span class="tag">Git</span>
           <span class="tag">JIRA</span>
@@ -381,6 +388,17 @@
     <h2 class="section-title">Professional Experience</h2>
     <div class="section-divider"></div>
     <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-company">Juniper Square</div>
+        <div class="timeline-role">Technical Lead – Data Engineering</div>
+        <div class="timeline-date">Current · New York, NY</div>
+        <div class="timeline-desc">
+          Leading data engineering at Juniper Square, a fintech platform transforming private markets infrastructure.
+          Scaling data pipelines and architecture to support rapid product growth. Recently moved to NYC for this role 🚀
+        </div>
+      </div>
 
       <div class="timeline-item">
         <div class="timeline-dot"></div>
@@ -509,6 +527,56 @@
         <div class="project-lang">JavaScript</div>
       </a>
 
+      <a class="project-card" href="https://drive.google.com/file/d/1MBqVM9MLWms8ESeBMoeSZD7115MrgCO1/view" target="_blank" rel="noopener">
+        <div class="project-header">
+          <div class="project-icon">🏫</div>
+          <div class="project-arrow">↗</div>
+        </div>
+        <div class="project-name">HackWestern – Classroom Transparency</div>
+        <div class="project-desc">Hackathon project bringing transparency and accountability to classrooms by recognizing hands raised. Built at HackWestern 2017.</div>
+        <div class="project-lang">Hackathon · Nov 2017</div>
+      </a>
+
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-icon">📅</div>
+        </div>
+        <div class="project-name">Hate The Wait</div>
+        <div class="project-desc">Scheduling service startup with two apps — one for clients, one for admins. Lead developer on the admin side, built in C# and PHP on Unity.</div>
+        <div class="project-lang">C# / PHP / Unity · 2016</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certs">
+  <div class="container">
+    <p class="section-label">// learning never stops</p>
+    <h2 class="section-title">Certifications</h2>
+    <div class="section-divider"></div>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-icon">⚡</div>
+        <div class="skill-title">Spark and Python for Big Data with PySpark</div>
+        <div class="skill-desc">Udemy — Issued December 2020</div>
+        <div class="skill-tags">
+          <span class="skill-tag">PySpark</span>
+          <span class="skill-tag">Big Data</span>
+          <span class="skill-tag">Python</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">📊</div>
+        <div class="skill-title">Data Analysis with Python and Pandas</div>
+        <div class="skill-desc">Udemy — Issued January 2020</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Pandas</span>
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">Data Analysis</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
