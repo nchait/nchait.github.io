@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Noah Chait — Developer & Builder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0d0f14;
+      --bg2:       #13161e;
+      --bg3:       #1a1e29;
+      --border:    rgba(255,255,255,0.08);
+      --text:      #e8eaf0;
+      --muted:     #8892a4;
+      --accent:    #6c8ff5;
+      --accent2:   #a78bfa;
+      --green:     #4ade80;
+      --yellow:    #fbbf24;
+      --card-bg:   #161a24;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      background: rgba(13, 15, 20, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 60px;
+    }
+    .nav-logo {
+      font-weight: 700; font-size: 1.1rem; color: var(--text);
+      text-decoration: none; letter-spacing: -0.02em;
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: var(--muted); text-decoration: none; font-size: 0.875rem;
+      font-weight: 500; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    /* ── HERO ───────────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      padding: 100px 2rem 60px;
+      position: relative; overflow: hidden;
+    }
+    .hero-glow {
+      position: absolute; width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(108,143,245,0.12) 0%, transparent 70%);
+      top: 50%; left: 50%; transform: translate(-50%, -60%);
+      pointer-events: none;
+    }
+    .hero-inner { max-width: 760px; text-align: center; position: relative; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(108,143,245,0.12); border: 1px solid rgba(108,143,245,0.3);
+      color: var(--accent); font-size: 0.8rem; font-weight: 500;
+      padding: 4px 14px; border-radius: 100px; margin-bottom: 1.5rem;
+    }
+    .hero-badge::before { content: ''; width: 6px; height: 6px; background: var(--green); border-radius: 50%; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.4; } }
+
+    h1.hero-name {
+      font-size: clamp(2.5rem, 7vw, 5rem);
+      font-weight: 800; letter-spacing: -0.03em; line-height: 1.05;
+      background: linear-gradient(135deg, #e8eaf0 30%, var(--accent) 70%, var(--accent2) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text; margin-bottom: 0.75rem;
+    }
+    .hero-tagline {
+      font-size: clamp(1rem, 2.5vw, 1.35rem);
+      color: var(--muted); font-weight: 400; margin-bottom: 1rem;
+    }
+    .hero-tagline strong { color: var(--text); font-weight: 600; }
+    .hero-location {
+      font-size: 0.9rem; color: var(--muted); margin-bottom: 2.5rem;
+    }
+    .hero-location span { color: var(--accent); }
+    .hero-ctas { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--accent); color: #fff; text-decoration: none;
+      padding: 12px 28px; border-radius: 8px; font-weight: 600;
+      font-size: 0.9rem; transition: all 0.2s;
+    }
+    .btn-primary:hover { background: #5a7ee8; transform: translateY(-1px); }
+    .btn-outline {
+      border: 1px solid var(--border); color: var(--text); text-decoration: none;
+      padding: 12px 28px; border-radius: 8px; font-weight: 500;
+      font-size: 0.9rem; transition: all 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
+
+    /* ── SECTIONS ───────────────────────────── */
+    section { padding: 80px 2rem; }
+    .container { max-width: 960px; margin: 0 auto; }
+    .section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem; color: var(--accent); letter-spacing: 0.1em;
+      text-transform: uppercase; margin-bottom: 0.5rem;
+    }
+    h2.section-title {
+      font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700;
+      letter-spacing: -0.02em; margin-bottom: 1rem;
+    }
+    .section-divider {
+      height: 1px; background: var(--border); margin-bottom: 3rem;
+    }
+
+    /* ── ABOUT ──────────────────────────────── */
+    #about { background: var(--bg2); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+    @media(max-width:640px) { .about-grid { grid-template-columns: 1fr; gap: 2rem; } }
+    .about-text p { color: var(--muted); margin-bottom: 1rem; font-size: 0.975rem; }
+    .about-text p strong { color: var(--text); }
+    .about-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 1.5rem; }
+    .tag {
+      background: var(--bg3); border: 1px solid var(--border);
+      color: var(--muted); font-size: 0.8rem; padding: 4px 12px;
+      border-radius: 6px; font-weight: 500;
+    }
+    .about-stats { display: flex; flex-direction: column; gap: 1.25rem; }
+    .stat-card {
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 12px; padding: 1.25rem 1.5rem;
+    }
+    .stat-num { font-size: 2rem; font-weight: 800; color: var(--accent); letter-spacing: -0.03em; }
+    .stat-label { font-size: 0.85rem; color: var(--muted); margin-top: 2px; }
+
+    /* ── SKILLS ─────────────────────────────── */
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+    .skill-card {
+      background: var(--card-bg); border: 1px solid var(--border);
+      border-radius: 12px; padding: 1.5rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .skill-card:hover { border-color: rgba(108,143,245,0.4); transform: translateY(-2px); }
+    .skill-icon { font-size: 1.75rem; margin-bottom: 0.75rem; }
+    .skill-title { font-weight: 600; font-size: 0.95rem; margin-bottom: 0.5rem; }
+    .skill-desc { color: var(--muted); font-size: 0.85rem; }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 1rem; }
+    .skill-tag {
+      background: rgba(108,143,245,0.1); color: var(--accent);
+      font-size: 0.75rem; padding: 2px 10px; border-radius: 4px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* ── EXPERIENCE ─────────────────────────── */
+    #experience { background: var(--bg2); }
+    .timeline { position: relative; }
+    .timeline::before {
+      content: ''; position: absolute; left: 16px; top: 0; bottom: 0;
+      width: 1px; background: var(--border);
+    }
+    .timeline-item { padding-left: 52px; position: relative; margin-bottom: 2.5rem; }
+    .timeline-item:last-child { margin-bottom: 0; }
+    .timeline-dot {
+      position: absolute; left: 8px; top: 4px;
+      width: 16px; height: 16px; border-radius: 50%;
+      background: var(--bg); border: 2px solid var(--accent);
+      z-index: 1;
+    }
+    .timeline-company {
+      font-weight: 700; font-size: 1.05rem; margin-bottom: 2px;
+    }
+    .timeline-role {
+      color: var(--accent); font-size: 0.875rem; font-weight: 600; margin-bottom: 4px;
+    }
+    .timeline-date {
+      font-family: 'JetBrains Mono', monospace; color: var(--muted);
+      font-size: 0.78rem; margin-bottom: 0.75rem;
+    }
+    .timeline-desc {
+      color: var(--muted); font-size: 0.9rem;
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 8px; padding: 1rem 1.25rem;
+    }
+
+    /* ── PROJECTS ───────────────────────────── */
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; }
+    .project-card {
+      background: var(--card-bg); border: 1px solid var(--border);
+      border-radius: 12px; padding: 1.5rem;
+      transition: border-color 0.2s, transform 0.2s;
+      display: flex; flex-direction: column;
+      text-decoration: none; color: inherit;
+    }
+    .project-card:hover { border-color: rgba(108,143,245,0.4); transform: translateY(-2px); }
+    .project-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem; }
+    .project-icon { font-size: 1.5rem; }
+    .project-arrow { color: var(--muted); font-size: 1rem; }
+    .project-name { font-weight: 600; font-size: 0.95rem; margin-bottom: 0.4rem; }
+    .project-desc { color: var(--muted); font-size: 0.85rem; flex: 1; }
+    .project-lang {
+      margin-top: 1rem; font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem; color: var(--yellow); display: flex; align-items: center; gap: 6px;
+    }
+    .project-lang::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--yellow); }
+
+    /* ── CONTACT ────────────────────────────── */
+    #contact { background: var(--bg2); }
+    .contact-inner { text-align: center; max-width: 560px; margin: 0 auto; }
+    .contact-inner p { color: var(--muted); margin-bottom: 2rem; font-size: 0.975rem; }
+    .contact-links { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .contact-link {
+      display: flex; align-items: center; gap: 8px;
+      background: var(--bg3); border: 1px solid var(--border);
+      color: var(--text); text-decoration: none; font-size: 0.875rem;
+      font-weight: 500; padding: 10px 20px; border-radius: 8px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .contact-link:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ── FOOTER ─────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--border); padding: 2rem;
+      text-align: center; color: var(--muted); font-size: 0.8rem;
+    }
+
+    /* ── MOBILE ─────────────────────────────── */
+    @media(max-width:480px) {
+      nav .nav-links { display: none; }
+      .hero-ctas { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#hero">Noah<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div class="hero-badge">Available for opportunities</div>
+    <h1 class="hero-name">Noah Chait</h1>
+    <p class="hero-tagline"><strong>Full Stack Developer</strong> &amp; People Person</p>
+    <p class="hero-location">📍 <span>Thornhill / Toronto, ON</span></p>
+    <div class="hero-ctas">
+      <a href="#experience" class="btn-primary">View Experience</a>
+      <a href="#contact" class="btn-outline">Get in Touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <p class="section-label">// about me</p>
+    <h2 class="section-title">Builder at heart.</h2>
+    <div class="section-divider"></div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          I've been building software for <strong>7+ years</strong>, picking up everything from
+          web apps to automation along the way. I'm comfortable across the stack and always curious
+          about what's around the corner.
+        </p>
+        <p>
+          What sets me apart is the <strong>business side</strong>. I've worked closely with
+          founders and C-suite teams, giving me a perspective that goes beyond writing code —
+          I understand the "why" behind the product.
+        </p>
+        <p>
+          Based in <strong>Thornhill / Toronto</strong>, open to both remote and in-person roles.
+        </p>
+        <div class="about-tags">
+          <span class="tag">React</span>
+          <span class="tag">Node.js</span>
+          <span class="tag">Python</span>
+          <span class="tag">TypeScript</span>
+          <span class="tag">SQL</span>
+          <span class="tag">GCP</span>
+          <span class="tag">Git</span>
+          <span class="tag">JIRA</span>
+        </div>
+      </div>
+      <div class="about-stats">
+        <div class="stat-card">
+          <div class="stat-num">7+</div>
+          <div class="stat-label">Years writing software</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">3</div>
+          <div class="stat-label">Industry internships</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">∞</div>
+          <div class="stat-label">Side projects started</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <p class="section-label">// what i bring</p>
+    <h2 class="section-title">Skills &amp; Strengths</h2>
+    <div class="section-divider"></div>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-icon">💻</div>
+        <div class="skill-title">Software Development</div>
+        <div class="skill-desc">Full stack experience across multiple languages, frameworks, and paradigms — from frontend UIs to backend APIs and data pipelines.</div>
+        <div class="skill-tags">
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">TypeScript</span>
+          <span class="skill-tag">SQL</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">📊</div>
+        <div class="skill-title">Business Acumen</div>
+        <div class="skill-desc">Time in sales and finance taught me how startups grow. I've worked closely with C-suite teams and know how to connect technical work to business outcomes.</div>
+        <div class="skill-tags">
+          <span class="skill-tag">CRM</span>
+          <span class="skill-tag">Financial Modeling</span>
+          <span class="skill-tag">VBA</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">☁️</div>
+        <div class="skill-title">Cloud &amp; DevOps</div>
+        <div class="skill-desc">Hands-on experience with Google Cloud Platform — from Bigtable and Dataflow to Cloud Functions and deployment pipelines.</div>
+        <div class="skill-tags">
+          <span class="skill-tag">GCP</span>
+          <span class="skill-tag">Dataflow</span>
+          <span class="skill-tag">BigQuery</span>
+          <span class="skill-tag">Firebase</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">🔍</div>
+        <div class="skill-title">QA &amp; Automation</div>
+        <div class="skill-desc">Started my career in quality assurance — comfortable writing tests, reporting bugs, and building automation scripts to save everyone time.</div>
+        <div class="skill-tags">
+          <span class="skill-tag">JIRA</span>
+          <span class="skill-tag">Selenium</span>
+          <span class="skill-tag">Web Scraping</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <p class="section-label">// where i've been</p>
+    <h2 class="section-title">Professional Experience</h2>
+    <div class="section-divider"></div>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-company">Last Call</div>
+        <div class="timeline-role">Sales Associate</div>
+        <div class="timeline-date">July – August 2017</div>
+        <div class="timeline-desc">
+          Built a Zoho CRM from scratch that became the backbone of the company's outbound sales strategy.
+          Delivered a set of strategic recommendations at the end of the internship that were very well received by leadership.
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-company">Firepower Capital</div>
+        <div class="timeline-role">Junior Analyst</div>
+        <div class="timeline-date">May – June 2017</div>
+        <div class="timeline-desc">
+          Joined a four-person analyst team making initial critiques to financial models and providing
+          technical expertise on complex deals. Built a VBA model to automate compiling monthly
+          statements into quarterly reports.
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-company">KnowRoaming</div>
+        <div class="timeline-role">Quality Assurance</div>
+        <div class="timeline-date">June – August 2015</div>
+        <div class="timeline-desc">
+          First taste of professional software development. Responsible for bug reporting and
+          triage using JIRA and Slack, working directly with developers. Also got my first
+          hands-on experience with web scraping and automation.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <p class="section-label">// things i've built</p>
+    <h2 class="section-title">Projects</h2>
+    <div class="section-divider"></div>
+    <div class="projects-grid">
+
+      <a class="project-card" href="https://github.com/nchait/FortniteLeaderboards" target="_blank" rel="noopener">
+        <div class="project-header">
+          <div class="project-icon">🎮</div>
+          <div class="project-arrow">↗</div>
+        </div>
+        <div class="project-name">Fortnite Leaderboards</div>
+        <div class="project-desc">A leaderboard tracker for Fortnite stats — built when the game was at peak hype.</div>
+        <div class="project-lang">JavaScript</div>
+      </a>
+
+      <a class="project-card" href="https://github.com/nchait/EPLSurvivor" target="_blank" rel="noopener">
+        <div class="project-header">
+          <div class="project-icon">⚽</div>
+          <div class="project-arrow">↗</div>
+        </div>
+        <div class="project-name">EPL Survivor</div>
+        <div class="project-desc">A fantasy/survivor game built around the English Premier League — pick your teams, stay alive.</div>
+        <div class="project-lang">JavaScript</div>
+      </a>
+
+      <a class="project-card" href="https://github.com/nchait/bert-qa" target="_blank" rel="noopener">
+        <div class="project-header">
+          <div class="project-icon">🤖</div>
+          <div class="project-arrow">↗</div>
+        </div>
+        <div class="project-name">BERT Q&amp;A</div>
+        <div class="project-desc">Question-answering system powered by BERT. Exploring NLP before it was everyone's favourite buzzword.</div>
+        <div class="project-lang">Python</div>
+      </a>
+
+      <a class="project-card" href="https://github.com/nchait/OurCosmos" target="_blank" rel="noopener">
+        <div class="project-header">
+          <div class="project-icon">🌌</div>
+          <div class="project-arrow">↗</div>
+        </div>
+        <div class="project-name">OurCosmos</div>
+        <div class="project-desc">A space-themed project. The universe is big; why not build something to explore it?</div>
+        <div class="project-lang">JavaScript</div>
+      </a>
+
+      <a class="project-card" href="https://github.com/nchait/coplay" target="_blank" rel="noopener">
+        <div class="project-header">
+          <div class="project-icon">🎵</div>
+          <div class="project-arrow">↗</div>
+        </div>
+        <div class="project-name">Coplay</div>
+        <div class="project-desc">A collaborative music or media project — sharing is caring.</div>
+        <div class="project-lang">JavaScript</div>
+      </a>
+
+      <a class="project-card" href="https://github.com/nchait/socket.io-poc" target="_blank" rel="noopener">
+        <div class="project-header">
+          <div class="project-icon">⚡</div>
+          <div class="project-arrow">↗</div>
+        </div>
+        <div class="project-name">Socket.io POC</div>
+        <div class="project-desc">Proof-of-concept real-time app using Socket.io — experimenting with WebSockets and live data.</div>
+        <div class="project-lang">Node.js</div>
+      </a>
+
+      <a class="project-card" href="https://nchait.github.io/hbacs" target="_blank" rel="noopener">
+        <div class="project-header">
+          <div class="project-icon">🌱</div>
+          <div class="project-arrow">↗</div>
+        </div>
+        <div class="project-name">HBACS</div>
+        <div class="project-desc">A full web project covering sustainability topics including cultured meat, resource depletion, and responsible branding.</div>
+        <div class="project-lang">HTML / CSS</div>
+      </a>
+
+      <a class="project-card" href="https://github.com/nchait/AlterChaitingRecipes" target="_blank" rel="noopener">
+        <div class="project-header">
+          <div class="project-icon">🍳</div>
+          <div class="project-arrow">↗</div>
+        </div>
+        <div class="project-name">AlterChaiting Recipes</div>
+        <div class="project-desc">A recipe app — because even developers need to eat.</div>
+        <div class="project-lang">JavaScript</div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-inner">
+      <p class="section-label">// let's talk</p>
+      <h2 class="section-title">Get in Touch</h2>
+      <div class="section-divider"></div>
+      <p>
+        Whether it's a new role, a side project, or just to chat tech — I'm always up for a conversation.
+        Drop me a line.
+      </p>
+      <div class="contact-links">
+        <a class="contact-link" href="mailto:nchait96@gmail.com">
+          ✉️ nchait96@gmail.com
+        </a>
+        <a class="contact-link" href="https://github.com/nchait" target="_blank" rel="noopener">
+          🐙 GitHub
+        </a>
+        <a class="contact-link" href="https://linkedin.com/in/noah-chait" target="_blank" rel="noopener">
+          💼 LinkedIn
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Built with ❤️ by Noah Chait — Toronto, ON</p>
+</footer>
+
+</body>
+</html>
